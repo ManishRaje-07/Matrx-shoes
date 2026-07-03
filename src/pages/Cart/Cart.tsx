@@ -1,14 +1,32 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useShop } from '../../context/ShopContext';
-import { FiTrash2, FiMinus, FiPlus, FiShoppingBag, FiArrowRight, FiCheck } from 'react-icons/fi';
-import styles from './Cart.module.css';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useShop } from "../../context/ShopContext";
+import {
+  FiTrash2,
+  FiMinus,
+  FiPlus,
+  FiShoppingBag,
+  FiArrowRight,
+  FiCheck,
+} from "react-icons/fi";
+import styles from "./Cart.module.css";
 
 export const Cart: React.FC = () => {
   const navigate = useNavigate();
-  const { cart, products, updateQuantity, removeFromCart, clearCart, cartTotal, addToast, isLoggedIn, userEmail, userOrders } = useShop();
+  const {
+    cart,
+    products,
+    updateQuantity,
+    removeFromCart,
+    clearCart,
+    cartTotal,
+    addToast,
+    isLoggedIn,
+    userEmail,
+    userOrders,
+  } = useShop();
 
-  const [promoCode, setPromoCode] = useState('');
+  const [promoCode, setPromoCode] = useState("");
   const [discountPercent, setDiscountPercent] = useState(0);
 
   // Pricing calculations
@@ -16,7 +34,8 @@ export const Cart: React.FC = () => {
   const promoDiscount = subtotal * (discountPercent / 100);
   const taxedSubtotal = subtotal - promoDiscount;
   const shippingThreshold = 150;
-  const shipping = taxedSubtotal >= shippingThreshold || taxedSubtotal === 0 ? 0 : 15.00;
+  const shipping =
+    taxedSubtotal >= shippingThreshold || taxedSubtotal === 0 ? 0 : 15.0;
   const tax = taxedSubtotal * 0.08;
   const grandTotal = taxedSubtotal + shipping + tax;
 
@@ -24,22 +43,25 @@ export const Cart: React.FC = () => {
   const handleApplyPromo = (e: React.FormEvent) => {
     e.preventDefault();
     if (!promoCode.trim()) {
-      addToast('Please enter a coupon code.', 'error');
+      addToast("Please enter a coupon code.", "error");
       return;
     }
 
-    if (promoCode.trim().toUpperCase() === 'MARTX10') {
+    if (promoCode.trim().toUpperCase() === "MARTX10") {
       setDiscountPercent(10);
-      addToast('Promo code applied successfully! 10% discount applied.', 'success');
+      addToast(
+        "Promo code applied successfully! 10% discount applied.",
+        "success",
+      );
     } else {
-      addToast('Invalid promo code. Try "MARTX10".', 'error');
+      addToast('Invalid promo code. Try "MARTX10".', "error");
     }
   };
 
   const handleCheckout = async () => {
     if (!isLoggedIn || !userEmail) {
-      addToast('Please log in to complete your checkout.', 'error');
-      navigate('/login?redirect=/cart');
+      addToast("Please log in to complete your checkout.", "error");
+      navigate("/login?redirect=/cart");
       return;
     }
 
@@ -49,7 +71,7 @@ export const Cart: React.FC = () => {
         const product = products.find((p) => p.id === item.id);
         return {
           id: item.id,
-          name: product ? product.name : 'Unknown Product',
+          name: product ? product.name : "Unknown Product",
           size: item.size,
           color: item.color,
           price: product ? product.price * (1 - product.discount / 100) : 0,
@@ -64,22 +86,26 @@ export const Cart: React.FC = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/orders', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5000";
+      const response = await fetch(`${API_BASE}/api/orders`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(orderData),
       });
 
       if (response.ok) {
-        addToast('Checkout successful! Your order has been placed.', 'success');
+        addToast("Checkout successful! Your order has been placed.", "success");
         clearCart();
         setDiscountPercent(0);
       } else {
         const errorData = await response.json();
-        addToast(errorData.error || 'Checkout failed. Please try again.', 'error');
+        addToast(
+          errorData.error || "Checkout failed. Please try again.",
+          "error",
+        );
       }
     } catch {
-      addToast('Failed to connect to checkout server.', 'error');
+      addToast("Failed to connect to checkout server.", "error");
     }
   };
 
@@ -92,7 +118,8 @@ export const Cart: React.FC = () => {
           </div>
           <h1>Your Cart is Empty</h1>
           <p>
-            Looks like you haven't added anything to your cart yet. Head over to our catalog and discover our premium shoes.
+            Looks like you haven't added anything to your cart yet. Head over to
+            our catalog and discover our premium shoes.
           </p>
           <Link to="/shop" className={styles.returnBtn}>
             <span>Go to Shop</span>
@@ -110,17 +137,25 @@ export const Cart: React.FC = () => {
                   <div className={styles.orderHeader}>
                     <div className={styles.orderHeaderMeta}>
                       <span className={styles.orderId}>{order.id}</span>
-                      <span className={styles.orderDate}>Ordered on {new Date(order.date).toLocaleDateString()}</span>
+                      <span className={styles.orderDate}>
+                        Ordered on {new Date(order.date).toLocaleDateString()}
+                      </span>
                     </div>
-                    <span className={`${styles.orderStatus} ${styles.processing}`}>{order.status}</span>
+                    <span
+                      className={`${styles.orderStatus} ${styles.processing}`}
+                    >
+                      {order.status}
+                    </span>
                   </div>
                   <div className={styles.orderItems}>
                     {order.items.map((item: any, idx: number) => (
                       <div key={idx} className={styles.orderItem}>
                         <div className={styles.orderItemDetails}>
-                          <span className={styles.orderItemName}>{item.name}</span>
+                          <span className={styles.orderItemName}>
+                            {item.name}
+                          </span>
                           <span className={styles.orderItemMeta}>
-                            Size: {item.size} | Color:{' '}
+                            Size: {item.size} | Color:{" "}
                             <span
                               className={styles.colorIndicator}
                               style={{ backgroundColor: item.color }}
@@ -135,7 +170,9 @@ export const Cart: React.FC = () => {
                   </div>
                   <div className={styles.orderFooter}>
                     <span>Total Amount:</span>
-                    <span className={styles.orderTotal}>${order.total.toFixed(2)}</span>
+                    <span className={styles.orderTotal}>
+                      ${order.total.toFixed(2)}
+                    </span>
                   </div>
                 </div>
               ))}
@@ -176,20 +213,35 @@ export const Cart: React.FC = () => {
               const itemSubtotal = finalPrice * item.quantity;
 
               return (
-                <div key={`${item.id}-${item.size}-${item.color}`} className={styles.cartRow}>
+                <div
+                  key={`${item.id}-${item.size}-${item.color}`}
+                  className={styles.cartRow}
+                >
                   {/* Product details info */}
                   <div className={styles.productCell}>
-                    <img src={product.image} alt={product.name} className={styles.itemImg} />
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className={styles.itemImg}
+                    />
                     <div className={styles.itemMeta}>
-                      <Link to={`/product/${product.id}`} className={styles.itemName}>
+                      <Link
+                        to={`/product/${product.id}`}
+                        className={styles.itemName}
+                      >
                         {product.name}
                       </Link>
                       <span className={styles.itemBrand}>{product.brand}</span>
                       <div className={styles.itemSpecs}>
-                        <span>Size: <strong style={{ color: 'var(--text-primary)' }}>US {item.size}</strong></span>
+                        <span>
+                          Size:{" "}
+                          <strong style={{ color: "var(--text-primary)" }}>
+                            US {item.size}
+                          </strong>
+                        </span>
                         <span className={styles.specDivider}>|</span>
                         <span className={styles.colorRow}>
-                          Color: 
+                          Color:
                           <span
                             className={styles.colorDot}
                             style={{ backgroundColor: item.color }}
@@ -203,11 +255,17 @@ export const Cart: React.FC = () => {
                   <div className={styles.priceCell}>
                     {product.discount > 0 ? (
                       <div className={styles.priceContainer}>
-                        <span className={styles.itemPriceDiscounted}>${finalPrice.toFixed(2)}</span>
-                        <span className={styles.itemPriceOriginal}>${product.price.toFixed(2)}</span>
+                        <span className={styles.itemPriceDiscounted}>
+                          ${finalPrice.toFixed(2)}
+                        </span>
+                        <span className={styles.itemPriceOriginal}>
+                          ${product.price.toFixed(2)}
+                        </span>
                       </div>
                     ) : (
-                      <span className={styles.itemPrice}>${product.price.toFixed(2)}</span>
+                      <span className={styles.itemPrice}>
+                        ${product.price.toFixed(2)}
+                      </span>
                     )}
                   </div>
 
@@ -215,7 +273,14 @@ export const Cart: React.FC = () => {
                   <div className={styles.qtyCell}>
                     <div className={styles.qtyWrapper}>
                       <button
-                        onClick={() => updateQuantity(item.id, item.size, item.color, item.quantity - 1)}
+                        onClick={() =>
+                          updateQuantity(
+                            item.id,
+                            item.size,
+                            item.color,
+                            item.quantity - 1,
+                          )
+                        }
                         className={styles.qtyBtn}
                         aria-label="Decrease quantity"
                       >
@@ -223,7 +288,14 @@ export const Cart: React.FC = () => {
                       </button>
                       <span className={styles.qtyVal}>{item.quantity}</span>
                       <button
-                        onClick={() => updateQuantity(item.id, item.size, item.color, item.quantity + 1)}
+                        onClick={() =>
+                          updateQuantity(
+                            item.id,
+                            item.size,
+                            item.color,
+                            item.quantity + 1,
+                          )
+                        }
                         className={styles.qtyBtn}
                         aria-label="Increase quantity"
                         disabled={item.quantity >= product.stock}
@@ -241,7 +313,9 @@ export const Cart: React.FC = () => {
                   {/* Delete Button */}
                   <div className={styles.removeCell}>
                     <button
-                      onClick={() => removeFromCart(item.id, item.size, item.color)}
+                      onClick={() =>
+                        removeFromCart(item.id, item.size, item.color)
+                      }
                       className={styles.trashBtn}
                       title="Remove Item"
                     >
@@ -284,11 +358,15 @@ export const Cart: React.FC = () => {
 
               <div className={styles.calcRow}>
                 <span>Shipping</span>
-                <span>{shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`}</span>
+                <span>
+                  {shipping === 0 ? "FREE" : `$${shipping.toFixed(2)}`}
+                </span>
               </div>
               {shipping > 0 && (
                 <p className={styles.shippingNotice}>
-                  Add <strong>${(shippingThreshold - subtotal).toFixed(2)}</strong> more for free shipping!
+                  Add{" "}
+                  <strong>${(shippingThreshold - subtotal).toFixed(2)}</strong>{" "}
+                  more for free shipping!
                 </p>
               )}
 

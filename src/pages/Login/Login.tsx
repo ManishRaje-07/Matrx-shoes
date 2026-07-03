@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useShop } from '../../context/ShopContext';
-import { FiMail, FiLock, FiActivity, FiArrowRight } from 'react-icons/fi';
-import styles from './Login.module.css';
+import React, { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { useShop } from "../../context/ShopContext";
+import { FiMail, FiLock, FiActivity, FiArrowRight } from "react-icons/fi";
+import styles from "./Login.module.css";
 
 export const Login: React.FC = () => {
   const { login, isLoggedIn, addToast } = useShop();
@@ -11,13 +11,20 @@ export const Login: React.FC = () => {
 
   // Mode state: 'login' or 'register'
   const [isRegisterMode, setIsRegisterMode] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [errors, setErrors] = useState<{ email?: string; password?: string; confirmPassword?: string; form?: string }>({});
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [errors, setErrors] = useState<{
+    email?: string;
+    password?: string;
+    confirmPassword?: string;
+    form?: string;
+  }>({});
 
-  const rawRedirect = searchParams.get('redirect') || '/';
-  const redirectPath = rawRedirect.startsWith('/') ? rawRedirect : '/' + rawRedirect;
+  const rawRedirect = searchParams.get("redirect") || "/";
+  const redirectPath = rawRedirect.startsWith("/")
+    ? rawRedirect
+    : "/" + rawRedirect;
 
   // Redirect if already logged in
   useEffect(() => {
@@ -31,30 +38,30 @@ export const Login: React.FC = () => {
     let isValid = true;
 
     if (!email.trim()) {
-      tempErrors.email = 'Email address is required';
+      tempErrors.email = "Email address is required";
       isValid = false;
     } else {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
-        tempErrors.email = 'Please enter a valid email address';
+        tempErrors.email = "Please enter a valid email address";
         isValid = false;
       }
     }
 
     if (!password.trim()) {
-      tempErrors.password = 'Password is required';
+      tempErrors.password = "Password is required";
       isValid = false;
     } else if (password.length < 6) {
-      tempErrors.password = 'Password must be at least 6 characters';
+      tempErrors.password = "Password must be at least 6 characters";
       isValid = false;
     }
 
     if (isRegisterMode) {
       if (!confirmPassword.trim()) {
-        tempErrors.confirmPassword = 'Please confirm your password';
+        tempErrors.confirmPassword = "Please confirm your password";
         isValid = false;
       } else if (confirmPassword !== password) {
-        tempErrors.confirmPassword = 'Passwords do not match';
+        tempErrors.confirmPassword = "Passwords do not match";
         isValid = false;
       }
     }
@@ -67,11 +74,12 @@ export const Login: React.FC = () => {
     e.preventDefault();
     if (!validate()) return;
 
-    const endpoint = isRegisterMode ? '/api/auth/register' : '/api/auth/login';
+    const endpoint = isRegisterMode ? "/api/auth/register" : "/api/auth/login";
     try {
-      const response = await fetch(`http://localhost:5000${endpoint}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5000";
+      const response = await fetch(`${API_BASE}${endpoint}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
 
@@ -81,12 +89,18 @@ export const Login: React.FC = () => {
         login(email);
         navigate(redirectPath);
       } else {
-        setErrors((prev) => ({ ...prev, form: data.error || 'Authentication failed' }));
-        addToast(data.error || 'Authentication failed', 'error');
+        setErrors((prev) => ({
+          ...prev,
+          form: data.error || "Authentication failed",
+        }));
+        addToast(data.error || "Authentication failed", "error");
       }
     } catch {
-      setErrors((prev) => ({ ...prev, form: 'Failed to connect to authentication server' }));
-      addToast('Failed to connect to authentication server', 'error');
+      setErrors((prev) => ({
+        ...prev,
+        form: "Failed to connect to authentication server",
+      }));
+      addToast("Failed to connect to authentication server", "error");
     }
   };
 
@@ -102,20 +116,26 @@ export const Login: React.FC = () => {
             </h1>
           </div>
 
-          <h2 className={styles.title}>{isRegisterMode ? 'Create Account' : 'Welcome Back'}</h2>
+          <h2 className={styles.title}>
+            {isRegisterMode ? "Create Account" : "Welcome Back"}
+          </h2>
           <p className={styles.subtitle}>
             {isRegisterMode
-              ? 'Sign up to register your details and check out items'
-              : 'Enter details to log in to your MartX account'}
+              ? "Sign up to register your details and check out items"
+              : "Enter details to log in to your MartX account"}
           </p>
 
-          {errors.form && <div className={styles.formGlobalError}>{errors.form}</div>}
+          {errors.form && (
+            <div className={styles.formGlobalError}>{errors.form}</div>
+          )}
 
           <form onSubmit={handleSubmit} className={styles.form}>
             {/* Email Field */}
             <div className={styles.formField}>
               <label htmlFor="email">Email Address</label>
-              <div className={`${styles.inputWrapper} ${errors.email ? styles.inputErrorBorder : ''}`}>
+              <div
+                className={`${styles.inputWrapper} ${errors.email ? styles.inputErrorBorder : ""}`}
+              >
                 <FiMail className={styles.inputIcon} />
                 <input
                   type="email"
@@ -124,11 +144,14 @@ export const Login: React.FC = () => {
                   value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);
-                    if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
+                    if (errors.email)
+                      setErrors((prev) => ({ ...prev, email: undefined }));
                   }}
                 />
               </div>
-              {errors.email && <span className={styles.errorText}>{errors.email}</span>}
+              {errors.email && (
+                <span className={styles.errorText}>{errors.email}</span>
+              )}
             </div>
 
             {/* Password Field */}
@@ -140,7 +163,10 @@ export const Login: React.FC = () => {
                     href="#"
                     onClick={(e) => {
                       e.preventDefault();
-                      addToast('Password reset email sent (simulation).', 'info');
+                      addToast(
+                        "Password reset email sent (simulation).",
+                        "info",
+                      );
                     }}
                     className={styles.forgotLink}
                   >
@@ -148,7 +174,9 @@ export const Login: React.FC = () => {
                   </a>
                 )}
               </div>
-              <div className={`${styles.inputWrapper} ${errors.password ? styles.inputErrorBorder : ''}`}>
+              <div
+                className={`${styles.inputWrapper} ${errors.password ? styles.inputErrorBorder : ""}`}
+              >
                 <FiLock className={styles.inputIcon} />
                 <input
                   type="password"
@@ -157,18 +185,23 @@ export const Login: React.FC = () => {
                   value={password}
                   onChange={(e) => {
                     setPassword(e.target.value);
-                    if (errors.password) setErrors((prev) => ({ ...prev, password: undefined }));
+                    if (errors.password)
+                      setErrors((prev) => ({ ...prev, password: undefined }));
                   }}
                 />
               </div>
-              {errors.password && <span className={styles.errorText}>{errors.password}</span>}
+              {errors.password && (
+                <span className={styles.errorText}>{errors.password}</span>
+              )}
             </div>
 
             {/* Confirm Password (only in Register Mode) */}
             {isRegisterMode && (
               <div className={styles.formField}>
                 <label htmlFor="confirmPassword">Confirm Password</label>
-                <div className={`${styles.inputWrapper} ${errors.confirmPassword ? styles.inputErrorBorder : ''}`}>
+                <div
+                  className={`${styles.inputWrapper} ${errors.confirmPassword ? styles.inputErrorBorder : ""}`}
+                >
                   <FiLock className={styles.inputIcon} />
                   <input
                     type="password"
@@ -177,26 +210,36 @@ export const Login: React.FC = () => {
                     value={confirmPassword}
                     onChange={(e) => {
                       setConfirmPassword(e.target.value);
-                      if (errors.confirmPassword) setErrors((prev) => ({ ...prev, confirmPassword: undefined }));
+                      if (errors.confirmPassword)
+                        setErrors((prev) => ({
+                          ...prev,
+                          confirmPassword: undefined,
+                        }));
                     }}
                   />
                 </div>
                 {errors.confirmPassword && (
-                  <span className={styles.errorText}>{errors.confirmPassword}</span>
+                  <span className={styles.errorText}>
+                    {errors.confirmPassword}
+                  </span>
                 )}
               </div>
             )}
 
             {/* Submit Button */}
             <button type="submit" className={styles.submitBtn}>
-              <span>{isRegisterMode ? 'Sign Up' : 'Log In'}</span>
+              <span>{isRegisterMode ? "Sign Up" : "Log In"}</span>
               <FiArrowRight />
             </button>
           </form>
 
           {/* Toggle Mode */}
           <div className={styles.signupPrompt}>
-            <span>{isRegisterMode ? 'Already have an account? ' : "Don't have an account? "}</span>
+            <span>
+              {isRegisterMode
+                ? "Already have an account? "
+                : "Don't have an account? "}
+            </span>
             <button
               onClick={() => {
                 setIsRegisterMode(!isRegisterMode);
@@ -204,7 +247,7 @@ export const Login: React.FC = () => {
               }}
               className={styles.toggleModeBtn}
             >
-              {isRegisterMode ? 'Log In' : 'Create Account'}
+              {isRegisterMode ? "Log In" : "Create Account"}
             </button>
           </div>
         </div>

@@ -1,5 +1,11 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import productsData from '../data/products.json';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
+import productsData from "../data/products.json";
 
 export interface Review {
   id: number;
@@ -37,26 +43,36 @@ export interface CartItem {
 export interface Toast {
   id: string;
   message: string;
-  type: 'success' | 'error' | 'info';
+  type: "success" | "error" | "info";
 }
 
 interface ShopContextType {
   products: Product[];
   cart: CartItem[];
   wishlist: number[];
-  theme: 'light' | 'dark';
+  theme: "light" | "dark";
   toasts: Toast[];
   isLoggedIn: boolean;
   userEmail: string | null;
   userOrders: any[];
   toggleTheme: () => void;
-  addToCart: (id: number, size: number, color: string, quantity?: number) => void;
+  addToCart: (
+    id: number,
+    size: number,
+    color: string,
+    quantity?: number,
+  ) => void;
   removeFromCart: (id: number, size: number, color: string) => void;
-  updateQuantity: (id: number, size: number, color: string, quantity: number) => void;
+  updateQuantity: (
+    id: number,
+    size: number,
+    color: string,
+    quantity: number,
+  ) => void;
   clearCart: () => void;
   toggleWishlist: (id: number) => void;
   isInWishlist: (id: number) => boolean;
-  addToast: (message: string, type?: 'success' | 'error' | 'info') => void;
+  addToast: (message: string, type?: "success" | "error" | "info") => void;
   removeToast: (id: string) => void;
   login: (email: string) => void;
   logout: () => void;
@@ -67,67 +83,77 @@ interface ShopContextType {
 
 const ShopContext = createContext<ShopContextType | undefined>(undefined);
 
-export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [products, setProducts] = useState<Product[]>(productsData as Product[]);
+export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  const [products, setProducts] = useState<Product[]>(
+    productsData as Product[],
+  );
   const [userOrders, setUserOrders] = useState<any[]>([]);
 
   // Retrieve initial states from localStorage
   const [cart, setCart] = useState<CartItem[]>(() => {
-    const savedCart = localStorage.getItem('martx_cart');
+    const savedCart = localStorage.getItem("martx_cart");
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
   const [wishlist, setWishlist] = useState<number[]>(() => {
-    const savedWishlist = localStorage.getItem('martx_wishlist');
+    const savedWishlist = localStorage.getItem("martx_wishlist");
     return savedWishlist ? JSON.parse(savedWishlist) : [];
   });
 
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    const savedTheme = localStorage.getItem('martx_theme');
-    if (savedTheme === 'light' || savedTheme === 'dark') {
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    const savedTheme = localStorage.getItem("martx_theme");
+    if (savedTheme === "light" || savedTheme === "dark") {
       return savedTheme;
     }
     // Check system preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      return "dark";
     }
-    return 'light';
+    return "light";
   });
 
   const [toasts, setToasts] = useState<Toast[]>([]);
 
   // Auth States
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => {
-    return localStorage.getItem('martx_logged_in') === 'true';
+    return localStorage.getItem("martx_logged_in") === "true";
   });
 
   const [userEmail, setUserEmail] = useState<string | null>(() => {
-    return localStorage.getItem('martx_user_email');
+    return localStorage.getItem("martx_user_email");
   });
 
   // Sync state with localStorage
   useEffect(() => {
-    localStorage.setItem('martx_cart', JSON.stringify(cart));
+    localStorage.setItem("martx_cart", JSON.stringify(cart));
   }, [cart]);
 
   useEffect(() => {
-    localStorage.setItem('martx_wishlist', JSON.stringify(wishlist));
+    localStorage.setItem("martx_wishlist", JSON.stringify(wishlist));
   }, [wishlist]);
 
   // Apply theme to document body
   useEffect(() => {
-    localStorage.setItem('martx_theme', theme);
-    if (theme === 'dark') {
-      document.body.classList.add('dark-theme');
-      document.body.classList.remove('light-theme');
+    localStorage.setItem("martx_theme", theme);
+    if (theme === "dark") {
+      document.body.classList.add("dark-theme");
+      document.body.classList.remove("light-theme");
     } else {
-      document.body.classList.add('light-theme');
-      document.body.classList.remove('dark-theme');
+      document.body.classList.add("light-theme");
+      document.body.classList.remove("dark-theme");
     }
   }, [theme]);
 
   // Toast functions
-  const addToast = (message: string, type: 'success' | 'error' | 'info' = 'success') => {
+  const addToast = (
+    message: string,
+    type: "success" | "error" | "info" = "success",
+  ) => {
     const id = Date.now().toString() + Math.random().toString(36).substr(2, 5);
     setToasts((prev) => {
       const filtered = prev.filter((t) => t.message !== message);
@@ -140,38 +166,42 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
-    addToast(`Switched to ${theme === 'light' ? 'Dark' : 'Light'} Mode`, 'info');
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    addToast(
+      `Switched to ${theme === "light" ? "Dark" : "Light"} Mode`,
+      "info",
+    );
   };
 
   // Auth Functions
   const login = (email: string) => {
     setIsLoggedIn(true);
     setUserEmail(email);
-    localStorage.setItem('martx_logged_in', 'true');
-    localStorage.setItem('martx_user_email', email);
-    addToast('Logged in successfully!', 'success');
+    localStorage.setItem("martx_logged_in", "true");
+    localStorage.setItem("martx_user_email", email);
+    addToast("Logged in successfully!", "success");
   };
 
   const logout = () => {
     setIsLoggedIn(false);
     setUserEmail(null);
-    localStorage.removeItem('martx_logged_in');
-    localStorage.removeItem('martx_user_email');
-    addToast('Logged out successfully.', 'info');
+    localStorage.removeItem("martx_logged_in");
+    localStorage.removeItem("martx_user_email");
+    addToast("Logged out successfully.", "info");
   };
 
   // Fetch fresh products list from API server on mount
   useEffect(() => {
+    const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5000";
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/products');
+        const response = await fetch(`${API_BASE}/api/products`);
         if (response.ok) {
           const data = await response.json();
           setProducts(data);
         }
       } catch {
-        console.error('Failed to fetch products from backend API');
+        console.error("Failed to fetch products from backend API");
       }
     };
     fetchProducts();
@@ -181,13 +211,14 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const fetchUserOrders = useCallback(async () => {
     if (!isLoggedIn || !userEmail) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/orders/user/${userEmail}`);
+      const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5000";
+      const response = await fetch(`${API_BASE}/api/orders/user/${userEmail}`);
       if (response.ok) {
         const data = await response.json();
         setUserOrders(data);
       }
     } catch {
-      console.error('Failed to fetch user orders');
+      console.error("Failed to fetch user orders");
     }
   }, [isLoggedIn, userEmail]);
 
@@ -201,48 +232,59 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (!product) return;
 
     if (product.stock === 0) {
-      addToast('Sorry, this product is out of stock!', 'error');
+      addToast("Sorry, this product is out of stock!", "error");
       return;
     }
 
     const existingItem = cart.find(
-      (item) => item.id === id && item.size === size && item.color === color
+      (item) => item.id === id && item.size === size && item.color === color,
     );
 
     if (existingItem) {
       const updatedQuantity = existingItem.quantity + quantity;
       if (updatedQuantity > product.stock) {
-        addToast(`Cannot add more. Only ${product.stock} items in stock.`, 'error');
+        addToast(
+          `Cannot add more. Only ${product.stock} items in stock.`,
+          "error",
+        );
         return;
       }
       setCart((prevCart) =>
         prevCart.map((item) =>
           item.id === id && item.size === size && item.color === color
             ? { ...item, quantity: updatedQuantity }
-            : item
-        )
+            : item,
+        ),
       );
-      addToast(`Added ${product.name} to cart!`, 'success');
+      addToast(`Added ${product.name} to cart!`, "success");
     } else {
       if (quantity > product.stock) {
-        addToast(`Cannot add. Only ${product.stock} items in stock.`, 'error');
+        addToast(`Cannot add. Only ${product.stock} items in stock.`, "error");
         return;
       }
       setCart((prevCart) => [...prevCart, { id, size, color, quantity }]);
-      addToast(`Added ${product.name} to cart!`, 'success');
+      addToast(`Added ${product.name} to cart!`, "success");
     }
   };
 
   const removeFromCart = (id: number, size: number, color: string) => {
     const product = products.find((p) => p.id === id);
-    const productName = product ? product.name : 'Item';
-    setCart((prevCart) => prevCart.filter(
-      (item) => !(item.id === id && item.size === size && item.color === color)
-    ));
-    addToast(`${productName} removed from cart.`, 'info');
+    const productName = product ? product.name : "Item";
+    setCart((prevCart) =>
+      prevCart.filter(
+        (item) =>
+          !(item.id === id && item.size === size && item.color === color),
+      ),
+    );
+    addToast(`${productName} removed from cart.`, "info");
   };
 
-  const updateQuantity = (id: number, size: number, color: string, quantity: number) => {
+  const updateQuantity = (
+    id: number,
+    size: number,
+    color: string,
+    quantity: number,
+  ) => {
     const product = products.find((p) => p.id === id);
     if (!product) return;
 
@@ -252,7 +294,7 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
 
     if (quantity > product.stock) {
-      addToast(`Only ${product.stock} items in stock.`, 'error');
+      addToast(`Only ${product.stock} items in stock.`, "error");
       return;
     }
 
@@ -260,28 +302,28 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
       prevCart.map((item) =>
         item.id === id && item.size === size && item.color === color
           ? { ...item, quantity }
-          : item
-      )
+          : item,
+      ),
     );
   };
 
   const clearCart = () => {
     setCart([]);
-    addToast('Cart cleared.', 'info');
+    addToast("Cart cleared.", "info");
   };
 
   // Wishlist operations
   const toggleWishlist = (id: number) => {
     const product = products.find((p) => p.id === id);
-    const productName = product ? product.name : 'Item';
+    const productName = product ? product.name : "Item";
 
     setWishlist((prevWishlist) => {
       const exists = prevWishlist.includes(id);
       if (exists) {
-        addToast(`${productName} removed from wishlist.`, 'info');
+        addToast(`${productName} removed from wishlist.`, "info");
         return prevWishlist.filter((wId) => wId !== id);
       } else {
-        addToast(`${productName} added to wishlist!`, 'success');
+        addToast(`${productName} added to wishlist!`, "success");
         return [...prevWishlist, id];
       }
     });
@@ -335,7 +377,7 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
 export const useShop = () => {
   const context = useContext(ShopContext);
   if (!context) {
-    throw new Error('useShop must be used within a ShopProvider');
+    throw new Error("useShop must be used within a ShopProvider");
   }
   return context;
 };
