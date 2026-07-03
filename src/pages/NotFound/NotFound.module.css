@@ -1,0 +1,104 @@
+.notFoundPage {
+  width: 100%;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 80px;
+  background-color: var(--bg-secondary);
+}
+
+.container {
+  max-width: 500px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 60px 40px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.iconCircle {
+  width: 70px;
+  height: 70px;
+  border-radius: var(--radius-full);
+  background-color: var(--accent-light);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.icon {
+  font-size: 32px;
+  animation: rotateCompass 6s linear infinite;
+}
+
+@keyframes rotateCompass {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.errorCode {
+  font-size: 6rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  font-family: var(--font-display);
+  letter-spacing: -2px;
+}
+
+.errorMessage {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.homeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-top: 12px;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.homeBtn:hover {
+  background-color: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(255, 72, 0, 0.3);
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 40px 20px;
+  }
+  .errorCode {
+    font-size: 4.5rem;
+  }
+  .errorMessage {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1783079245293",
+    "name": "Tester",
+    "email": "test@example.com",
+    "subject": "Support Help",
+    "message": "Hello, this is a test message to verify the contact API integration.",
+    "date": "2026-07-03T11:47:25.293Z"
+  },
+  {
+    "id": "1783079279355",
+    "name": "Tester",
+    "email": "test@example.com",
+    "subject": "Support Help",
+    "message": "Hello, this is a test message to verify the contact API integration.",
+    "date": "2026-07-03T11:47:59.355Z"
+  }
+]

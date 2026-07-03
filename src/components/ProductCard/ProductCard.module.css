@@ -1,0 +1,276 @@
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  position: relative;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-md);
+}
+
+.imageLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.nameLink {
+  display: block;
+}
+
+.nameLink:hover .name {
+  color: var(--accent);
+}
+
+.imageWrapper {
+  position: relative;
+  background-color: var(--bg-secondary);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.productImg {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .productImg {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.badges {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2;
+}
+
+.badgeNew {
+  background-color: var(--accent);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.5px;
+}
+
+.badgeSale {
+  background-color: var(--danger);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.wishlistBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-backdrop);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: var(--shadow-sm);
+  transition: color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+}
+
+.wishlistBtn:hover {
+  transform: scale(1.1);
+  color: var(--danger);
+}
+
+.wishlistActive {
+  color: var(--danger) !important;
+  background-color: #ffffff !important;
+}
+
+body.dark-theme .wishlistActive {
+  background-color: var(--bg-tertiary) !important;
+}
+
+/* Hover overlay actions */
+.hoverOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+  display: flex;
+  gap: 8px;
+  transform: translateY(101%);
+  transition: transform var(--transition-normal);
+  z-index: 3;
+}
+
+.card:hover .hoverOverlay {
+  transform: translateY(0);
+}
+
+.overlayCartBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--accent);
+  color: #ffffff;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(255, 72, 0, 0.3);
+  transition: background var(--transition-fast);
+}
+
+.overlayCartBtn:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+}
+
+.overlayCartBtn:disabled {
+  background-color: var(--text-muted);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.overlayViewBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-backdrop);
+  color: var(--text-primary);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+}
+
+.overlayViewBtn:hover {
+  background: var(--bg-primary);
+}
+
+/* Product Info */
+.info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--warning);
+  font-weight: 700;
+}
+
+.starIcon {
+  fill: currentColor;
+}
+
+.name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 2px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.category {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.priceRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.price {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.priceDiscounted {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--danger);
+}
+
+.priceOriginal {
+  font-size: 0.9rem;
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.lowStock {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--warning);
+  background-color: rgba(245, 158, 11, 0.1);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.outOfStock {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--danger);
+  background-color: rgba(239, 68, 68, 0.1);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}

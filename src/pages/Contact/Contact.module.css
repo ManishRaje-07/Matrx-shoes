@@ -1,0 +1,299 @@
+.contactPage {
+  width: 100%;
+}
+
+.header {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 120px 24px 40px;
+}
+
+.headerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-top: 4px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 60px auto 0;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
+}
+
+/* Info Column details */
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.infoCol h2 {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.lead {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.infoCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.infoCard {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.infoIcon {
+  font-size: 24px;
+  color: var(--accent);
+}
+
+.infoCard h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.infoCard p {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.mutedText {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Form Column details */
+.formCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.formCard {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+}
+
+.formCard h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formField label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.formField input, .formField textarea {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast);
+}
+
+.formField input:focus, .formField textarea:focus {
+  border-color: var(--text-primary);
+}
+
+.inputError {
+  border-color: var(--danger) !important;
+}
+
+.errorText {
+  font-size: 0.8rem;
+  color: var(--danger);
+  font-weight: 500;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.submitBtn:hover {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+/* Styled Map Mockup Section */
+.mapSection {
+  max-width: 1200px;
+  margin: 80px auto 0;
+  padding: 0 24px 80px;
+}
+
+.mapContainer {
+  position: relative;
+  height: 400px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+}
+
+.mapOverlay {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 2;
+}
+
+.mapLabel {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-backdrop);
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mapPinIcon {
+  color: var(--accent);
+  font-size: 20px;
+}
+
+.mapLabel strong {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  display: block;
+}
+
+.mapLabel p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.mockMap {
+  background-color: var(--bg-tertiary);
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.gridLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+.gridLineVertical {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--border-color);
+}
+
+.mapMarker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background-color: var(--accent);
+  box-shadow: 0 0 0 8px var(--accent-light);
+  animation: pulseMarker 2s infinite;
+}
+
+@keyframes pulseMarker {
+  0% {
+    box-shadow: 0 0 0 0px rgba(255, 72, 0, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 16px rgba(255, 72, 0, 0);
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .infoCol h2 {
+    font-size: 1.6rem;
+  }
+  .formCard {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .infoCardsGrid {
+    grid-template-columns: 1fr;
+  }
+}

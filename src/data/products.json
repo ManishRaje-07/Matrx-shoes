@@ -1,0 +1,616 @@
+[
+  {
+    "id": 1,
+    "name": "MartX Aero Glide",
+    "brand": "MartX",
+    "category": "Running",
+    "description": "Engineered for maximum endurance and lightweight response. The Aero Glide features a revolutionary breathable mesh upper and a carbon-fiber plate that propels you forward with every stride. Perfect for long-distance runs and everyday training.",
+    "price": 140.00,
+    "discount": 15,
+    "rating": 4.8,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Jenkins",
+        "rating": 5,
+        "comment": "Absolutely incredible comfort! Feels like running on clouds. The size fits true to my usual.",
+        "date": "2026-05-12"
+      },
+      {
+        "id": 2,
+        "name": "David Miller",
+        "rating": 4,
+        "comment": "Very responsive cushioning, though it took a couple of runs to fully break in. Great looking design.",
+        "date": "2026-06-01"
+      }
+    ],
+    "sizes": [7, 8, 9, 10, 11],
+    "colors": ["#ef4444", "#1e293b", "#ffffff"],
+    "stock": 15,
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80",
+    "featured": true,
+    "newArrival": false
+  },
+  {
+    "id": 2,
+    "name": "MartX Quantum Boost",
+    "brand": "MartX",
+    "category": "Running",
+    "description": "Experience energy return like never before. The Quantum Boost is built with thousands of expanded foam capsules that deliver an unmatched springy sensation. The adaptive knit upper molds seamlessly to your foot shape.",
+    "price": 180.00,
+    "discount": 0,
+    "rating": 4.9,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Michael Chen",
+        "rating": 5,
+        "comment": "The energy return is real. I cut 30 seconds off my 5k personal record on the first week!",
+        "date": "2026-06-20"
+      }
+    ],
+    "sizes": [8, 9, 10, 11, 12],
+    "colors": ["#ffffff", "#000000", "#3b82f6"],
+    "stock": 8,
+    "image": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&auto=format&fit=crop&q=80",
+    "featured": true,
+    "newArrival": true
+  },
+  {
+    "id": 3,
+    "name": "MartX Apex Court",
+    "brand": "Nike",
+    "category": "Basketball",
+    "description": "Dominate both ends of the court. The Apex Court features a high-top design offering superior ankle lock-down support. Responsive air cushioning pads heavy landings, while a multi-directional traction pattern ensures lightning-fast cuts.",
+    "price": 160.00,
+    "discount": 20,
+    "rating": 4.7,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Marcus Thompson",
+        "rating": 5,
+        "comment": "The ankle support is top tier. Zero slippage when changing directions rapidly.",
+        "date": "2026-04-18"
+      },
+      {
+        "id": 2,
+        "name": "Liam Carter",
+        "rating": 4,
+        "comment": "A bit heavy, but the impact protection is unmatched. Excellent court feel.",
+        "date": "2026-05-30"
+      }
+    ],
+    "sizes": [9, 10, 11, 12, 13],
+    "colors": ["#f59e0b", "#10b981", "#ef4444"],
+    "stock": 12,
+    "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80",
+    "featured": false,
+    "newArrival": false
+  },
+  {
+    "id": 4,
+    "name": "MartX Retro Flux",
+    "brand": "MartX",
+    "category": "Lifestyle",
+    "description": "Retro aesthetic meets contemporary comfort. This lifestyle sneaker combines suede overlays with breathable textiles. Fitted with a soft-foam midsole, it's designed to keep you walking in style and ease all day.",
+    "price": 110.00,
+    "discount": 0,
+    "rating": 4.6,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Emma Watson",
+        "rating": 5,
+        "comment": "Love the vintage look! Goes with almost any outfit. Super comfortable too.",
+        "date": "2026-06-11"
+      }
+    ],
+    "sizes": [6, 7, 8, 9, 10, 11],
+    "colors": ["#ffffff", "#f3f4f6", "#111827"],
+    "stock": 25,
+    "image": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600&auto=format&fit=crop&q=80",
+    "featured": true,
+    "newArrival": true
+  },
+  {
+    "id": 5,
+    "name": "MartX Zenith Fit",
+    "brand": "Adidas",
+    "category": "Training",
+    "description": "Built for high-intensity training. The Zenith Fit features a flat, wide heel base that keeps you grounded during heavy lifts. The TPU wrap-around side panels secure the midfoot for lateral agility drills.",
+    "price": 130.00,
+    "discount": 10,
+    "rating": 4.5,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Alex Mercer",
+        "rating": 4,
+        "comment": "Extremely stable base for squats and deadlifts. Upper could be a bit softer.",
+        "date": "2026-05-02"
+      }
+    ],
+    "sizes": [8, 9, 10, 11, 12],
+    "colors": ["#10b981", "#111827", "#f3f4f6"],
+    "stock": 18,
+    "image": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&auto=format&fit=crop&q=80",
+    "featured": false,
+    "newArrival": false
+  },
+  {
+    "id": 6,
+    "name": "MartX Nomad Trail",
+    "brand": "MartX",
+    "category": "Running",
+    "description": "Take your runs off the beaten path. Equipped with a rugged Vibram outsole, the Nomad Trail offers exceptional grip on wet, muddy, or loose dirt. Waterproof membrane lining guards against elements while keeping feet dry.",
+    "price": 150.00,
+    "discount": 0,
+    "rating": 4.8,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Robert Stark",
+        "rating": 5,
+        "comment": "Hiked and ran in muddy trails, feet remained 100% dry and gripped perfectly. Highly recommended.",
+        "date": "2026-06-15"
+      }
+    ],
+    "sizes": [8, 9, 10, 11],
+    "colors": ["#ea580c", "#78350f", "#1e293b"],
+    "stock": 7,
+    "image": "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&auto=format&fit=crop&q=80",
+    "featured": false,
+    "newArrival": true
+  },
+  {
+    "id": 7,
+    "name": "MartX Classic Canvas",
+    "brand": "Puma",
+    "category": "Lifestyle",
+    "description": "A timeless classic that never goes out of style. Crafted with heavy-duty organic canvas, this shoe offers clean, minimalist lines. Featuring a vulcanized rubber outsole for durable grip.",
+    "price": 85.00,
+    "discount": 5,
+    "rating": 4.4,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Jessica Lee",
+        "rating": 4,
+        "comment": "Simple, lightweight, and versatile. Excellent shoe for casual wear.",
+        "date": "2026-05-22"
+      }
+    ],
+    "sizes": [5, 6, 7, 8, 9, 10, 11],
+    "colors": ["#f59e0b", "#ffffff", "#000000"],
+    "stock": 30,
+    "image": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&auto=format&fit=crop&q=80",
+    "featured": false,
+    "newArrival": false
+  },
+  {
+    "id": 8,
+    "name": "MartX Legacy Leather",
+    "brand": "MartX",
+    "category": "Lifestyle",
+    "description": "Luxurious comfort crafted in full-grain Italian leather. Every detail is stitched by hand to deliver premium durability and refined style. Features an orthopedic cork footbed that molds to your unique arch.",
+    "price": 195.00,
+    "discount": 0,
+    "rating": 4.9,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Charles Foster",
+        "rating": 5,
+        "comment": "Pure premium leather. Smells great, looks gorgeous, and feels exceptionally comfortable.",
+        "date": "2026-06-25"
+      }
+    ],
+    "sizes": [8, 9, 10, 11, 12],
+    "colors": ["#78350f", "#000000"],
+    "stock": 5,
+    "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&auto=format&fit=crop&q=80",
+    "featured": true,
+    "newArrival": false
+  },
+  {
+    "id": 9,
+    "name": "MartX Air Vapor",
+    "brand": "Nike",
+    "category": "Running",
+    "description": "Engineered with hollowed-out air pillars that compresses and bounces back with elite elastic response. A dynamic Flywire lace system ensures the perfect midfoot wrap for maximum security.",
+    "price": 210.00,
+    "discount": 15,
+    "rating": 4.7,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Gary Peterson",
+        "rating": 4,
+        "comment": "Outstanding impact absorption. The aesthetic is extremely futuristic.",
+        "date": "2026-06-05"
+      }
+    ],
+    "sizes": [7, 8, 9, 10, 11, 12],
+    "colors": ["#3b82f6", "#000000", "#ec4899"],
+    "stock": 10,
+    "image": "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=600&auto=format&fit=crop&q=80",
+    "featured": false,
+    "newArrival": false
+  },
+  {
+    "id": 10,
+    "name": "MartX Stealth Walker",
+    "brand": "Under Armour",
+    "category": "Training",
+    "description": "Virtually weightless with high support. The Stealth Walker offers breathable compression fit with a sock-like collar. Underfoot rubber panels strategically absorb vertical shocks.",
+    "price": 125.00,
+    "discount": 0,
+    "rating": 4.6,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Tony Stark",
+        "rating": 5,
+        "comment": "Incredibly light, almost like wearing nothing at all but with solid arch support.",
+        "date": "2026-06-18"
+      }
+    ],
+    "sizes": [8, 9, 10, 11],
+    "colors": ["#000000", "#4b5563"],
+    "stock": 14,
+    "image": "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=600&auto=format&fit=crop&q=80",
+    "featured": false,
+    "newArrival": false
+  },
+  {
+    "id": 11,
+    "name": "MartX Obsidian Run",
+    "brand": "MartX",
+    "category": "Running",
+    "description": "Designed for night runners. Features ultra-bright reflective details embedded inside the woven upper, along with lightweight, durable nitrogen-injected foam for active spring.",
+    "price": 135.00,
+    "discount": 10,
+    "rating": 4.7,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Lucas Scott",
+        "rating": 5,
+        "comment": "The reflection glows bright under headlights. Foam cushion is soft and bouncy.",
+        "date": "2026-05-28"
+      }
+    ],
+    "sizes": [7, 8, 9, 10, 11, 12],
+    "colors": ["#1f2937", "#000000"],
+    "stock": 16,
+    "image": "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&auto=format&fit=crop&q=80",
+    "featured": false,
+    "newArrival": false
+  },
+  {
+    "id": 12,
+    "name": "MartX Neon Pulse",
+    "brand": "MartX",
+    "category": "Training",
+    "description": "Vibrant design meets serious gym performance. Features high-traction grip rubber wrapping high up the sides to assist in rope climbs and heavy platform lifts.",
+    "price": 145.00,
+    "discount": 25,
+    "rating": 4.8,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Diana Prince",
+        "rating": 5,
+        "comment": "Perfect hybrid shoe. Use it for both squatting and treadmill warmups.",
+        "date": "2026-06-12"
+      }
+    ],
+    "sizes": [6, 7, 8, 9, 10],
+    "colors": ["#10b981", "#ef4444", "#3b82f6"],
+    "stock": 11,
+    "image": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600&auto=format&fit=crop&q=80",
+    "featured": true,
+    "newArrival": false
+  },
+  {
+    "id": 13,
+    "name": "MartX Summit Ridge",
+    "brand": "Under Armour",
+    "category": "Running",
+    "description": "An outdoor specialist built to endure rocky passes and mountainous routes. Reinforced mudguards and an engineered toe box prevent injuries, while the high-density EVA midsole cushions shock.",
+    "price": 175.00,
+    "discount": 0,
+    "rating": 4.5,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Peter Parker",
+        "rating": 4,
+        "comment": "Very protective and rugged. A little stiff in the heel but great for rocky trails.",
+        "date": "2026-04-20"
+      }
+    ],
+    "sizes": [8, 9, 10, 11, 12],
+    "colors": ["#374151", "#78350f"],
+    "stock": 6,
+    "image": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&auto=format&fit=crop&q=80",
+    "featured": false,
+    "newArrival": false
+  },
+  {
+    "id": 14,
+    "name": "MartX Shadow Court",
+    "brand": "Nike",
+    "category": "Basketball",
+    "description": "A high-performance basketball shoe featuring responsive Zoom-style units under the forefoot. Modern design with transparent plastic strap lockdowns.",
+    "price": 165.00,
+    "discount": 10,
+    "rating": 4.6,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Chris Paul",
+        "rating": 5,
+        "comment": "Outstanding forefoot cushioning. Super responsive when pushing off the floor.",
+        "date": "2026-05-15"
+      }
+    ],
+    "sizes": [9, 10, 11, 12],
+    "colors": ["#4b5563", "#000000"],
+    "stock": 13,
+    "image": "https://images.unsplash.com/photo-1579338559194-a162d19de842?w=600&auto=format&fit=crop&q=80",
+    "featured": false,
+    "newArrival": false
+  },
+  {
+    "id": 15,
+    "name": "MartX Dynamo Strike",
+    "brand": "Puma",
+    "category": "Training",
+    "description": "A low-profile cross trainer built for crossfit enthusiasts. The breathable synthetic leather wraps the foot comfortably and resists abrasions.",
+    "price": 115.00,
+    "discount": 0,
+    "rating": 4.4,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Steve Rogers",
+        "rating": 4,
+        "comment": "Good gym sneaker. Comfortable for short sprints and basic bodyweight circuits.",
+        "date": "2026-06-10"
+      }
+    ],
+    "sizes": [7, 8, 9, 10, 11, 12],
+    "colors": ["#ef4444", "#ffffff"],
+    "stock": 20,
+    "image": "https://images.unsplash.com/photo-1607522370275-f14206abe5d3?w=600&auto=format&fit=crop&q=80",
+    "featured": false,
+    "newArrival": true
+  },
+  {
+    "id": 16,
+    "name": "MartX Aurora Glow",
+    "brand": "MartX",
+    "category": "Lifestyle",
+    "description": "Features iridescent dynamic overlays that shift colors under direct light. Fitted with MartX signature gel heel inserts for cloud-like comfort.",
+    "price": 130.00,
+    "discount": 20,
+    "rating": 4.8,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Bruce Banner",
+        "rating": 5,
+        "comment": "The shifting color gets compliments everywhere. Very soft heel cushion.",
+        "date": "2026-06-22"
+      }
+    ],
+    "sizes": [6, 7, 8, 9, 10, 11],
+    "colors": ["#ffffff", "#d1d5db", "#ec4899"],
+    "stock": 9,
+    "image": "https://images.unsplash.com/photo-1512374382149-4332c6c02153?w=600&auto=format&fit=crop&q=80",
+    "featured": true,
+    "newArrival": false
+  },
+  {
+    "id": 17,
+    "name": "MartX Infinite Run",
+    "brand": "Adidas",
+    "category": "Running",
+    "description": "Engineered for marathon preparation. Focuses heavily on impact dampening with a wide footprint profile that resists overpronation.",
+    "price": 160.00,
+    "discount": 0,
+    "rating": 4.7,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Barry Allen",
+        "rating": 5,
+        "comment": "Ran 20 miles in these, legs felt fresh afterwards. Elite stability.",
+        "date": "2026-06-19"
+      }
+    ],
+    "sizes": [8, 9, 10, 11, 12],
+    "colors": ["#ffffff", "#000000", "#10b981"],
+    "stock": 14,
+    "image": "https://images.unsplash.com/photo-1514989940723-e8e5163ccbe8?w=600&auto=format&fit=crop&q=80",
+    "featured": false,
+    "newArrival": false
+  },
+  {
+    "id": 18,
+    "name": "MartX Titan Force",
+    "brand": "MartX",
+    "category": "Basketball",
+    "description": "High-octane shoe for heavy power forwards. Thick collar foam and carbon torsional plates support explosive liftoffs and stabilize aggressive pivots.",
+    "price": 185.00,
+    "discount": 15,
+    "rating": 4.8,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "LeBron James",
+        "rating": 5,
+        "comment": "Perfect stiffness in the midfoot with great cushioning. Truly top-tier build quality.",
+        "date": "2026-05-10"
+      }
+    ],
+    "sizes": [9, 10, 11, 12, 13, 14],
+    "colors": ["#ef4444", "#000000", "#ffffff"],
+    "stock": 8,
+    "image": "https://images.unsplash.com/photo-1582588678413-dbf45f4823e9?w=600&auto=format&fit=crop&q=80",
+    "featured": true,
+    "newArrival": false
+  },
+  {
+    "id": 19,
+    "name": "MartX Velvet Street",
+    "brand": "Puma",
+    "category": "Lifestyle",
+    "description": "Premium suede construction in a retro skate shape. Padded tongue and thick gum outsole make this shoe the perfect weekend companion.",
+    "price": 95.00,
+    "discount": 0,
+    "rating": 4.3,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Wade Wilson",
+        "rating": 4,
+        "comment": "Classic retro skate feel. Looks dope, is comfortable, and handles daily walking easily.",
+        "date": "2026-06-11"
+      }
+    ],
+    "sizes": [7, 8, 9, 10, 11],
+    "colors": ["#6b7280", "#78350f", "#000000"],
+    "stock": 22,
+    "image": "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=600&auto=format&fit=crop&q=80",
+    "featured": false,
+    "newArrival": false
+  },
+  {
+    "id": 20,
+    "name": "MartX Eclipse Sneaker",
+    "brand": "MartX",
+    "category": "Lifestyle",
+    "description": "Sleek low-cut urban wear. Seamless synthetic paneling and direct-inject overlays create a modern structural look.",
+    "price": 120.00,
+    "discount": 10,
+    "rating": 4.6,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Clint Barton",
+        "rating": 5,
+        "comment": "Very stealthy, comfortable fit, and the materials feel incredibly high quality.",
+        "date": "2026-05-24"
+      }
+    ],
+    "sizes": [8, 9, 10, 11],
+    "colors": ["#000000", "#1f2937"],
+    "stock": 17,
+    "image": "https://images.unsplash.com/photo-1500462969106-f0679ee46a7a?w=600&auto=format&fit=crop&q=80",
+    "featured": false,
+    "newArrival": true
+  },
+  {
+    "id": 21,
+    "name": "MartX Prime Trainer",
+    "brand": "Adidas",
+    "category": "Training",
+    "description": "Minimalist trainers focusing on raw agility. Super flexible outsole allows barefoot style floor connection while protecting your feet.",
+    "price": 105.00,
+    "discount": 0,
+    "rating": 4.4,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Natasha Romanoff",
+        "rating": 4,
+        "comment": "Excellent grip for aerobics and lateral agility routines. Fit is secure and snug.",
+        "date": "2026-06-03"
+      }
+    ],
+    "sizes": [6, 7, 8, 9, 10],
+    "colors": ["#ffffff", "#f3f4f6", "#000000"],
+    "stock": 19,
+    "image": "https://images.unsplash.com/photo-1518049362265-d5b2a6467637?w=600&auto=format&fit=crop&q=80",
+    "featured": false,
+    "newArrival": false
+  },
+  {
+    "id": 22,
+    "name": "MartX Hydro Shield",
+    "brand": "MartX",
+    "category": "Running",
+    "description": "Rain and wet conditions won't slow you down. A full GORE-TEX waterproof shield covers the entire upper, while the customized tread drains water.",
+    "price": 190.00,
+    "discount": 20,
+    "rating": 4.8,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Arthur Curry",
+        "rating": 5,
+        "comment": "Literally walked through puddles and my socks were bone dry. Exceptional engineering.",
+        "date": "2026-06-21"
+      }
+    ],
+    "sizes": [8, 9, 10, 11, 12],
+    "colors": ["#1f2937", "#000000", "#3b82f6"],
+    "stock": 6,
+    "image": "https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=600&auto=format&fit=crop&q=80",
+    "featured": true,
+    "newArrival": false
+  },
+  {
+    "id": 23,
+    "name": "MartX Court Blazer",
+    "brand": "MartX",
+    "category": "Basketball",
+    "description": "Inspired by urban basketball culture. Suede accents and robust side wall panels offer classic retro court styling with modern interior fit.",
+    "price": 155.00,
+    "discount": 0,
+    "rating": 4.6,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Stephen Curry",
+        "rating": 5,
+        "comment": "Really neat aesthetic. Very comfortable ankle lining and responsive heel pad.",
+        "date": "2026-05-18"
+      }
+    ],
+    "sizes": [8, 9, 10, 11, 12, 13],
+    "colors": ["#1e3a8a", "#ffffff", "#d1d5db"],
+    "stock": 10,
+    "image": "https://images.unsplash.com/photo-1575537302964-96cd47c06b1b?w=600&auto=format&fit=crop&q=80",
+    "featured": false,
+    "newArrival": true
+  },
+  {
+    "id": 24,
+    "name": "MartX Horizon Knit",
+    "brand": "Puma",
+    "category": "Lifestyle",
+    "description": "Woven with elastic engineered yarn that hugs your foot. Extremely breathable, making it a stellar shoe for hot summer days.",
+    "price": 125.00,
+    "discount": 5,
+    "rating": 4.5,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Barry Allen",
+        "rating": 4,
+        "comment": "Perfect summer lifestyle sneaker. Breathability is 10/10.",
+        "date": "2026-06-08"
+      }
+    ],
+    "sizes": [7, 8, 9, 10, 11],
+    "colors": ["#ef4444", "#ffffff", "#000000"],
+    "stock": 15,
+    "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?w=600&auto=format&fit=crop&q=80",
+    "featured": false,
+    "newArrival": false
+  }
+]
