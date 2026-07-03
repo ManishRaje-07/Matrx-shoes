@@ -32,7 +32,7 @@ const ScrollToTop: React.FC = () => {
 const App: React.FC = () => {
   return (
     <ShopProvider>
-      <Router basename={import.meta.env.BASE_URL}>
+      <Router basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
         {/* Visual elements */}
         <ScrollProgress />
         <ToastContainer />
